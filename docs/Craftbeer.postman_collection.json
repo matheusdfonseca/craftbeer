@@ -1,0 +1,144 @@
+{
+	"info": {
+		"_postman_id": "b95b69ce-6df7-482f-86bb-968ac456877e",
+		"name": "Craftbeer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9000/beer/",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"beer",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get/{id}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:9000/beer/1",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"beer",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Transfer-Encoding",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"CERVEJA 4\",\r\n    \"alcoholContent\": \"7.5%\",\r\n    \"price\": 10.50,\r\n    \"categoryName\": \"AMERICAN LAGER\",\r\n    \"ingredients\": \"LÚPULO, FRUTAS VERMELHAS, MALTE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "put/{id}",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"CERVEJA 1 PUT\",\r\n    \"alcoholContent\": \"5%\",\r\n    \"price\": 25,\r\n    \"categoryName\": \"AMERICAN LAGER\",\r\n    \"ingredients\": \"LÚPULO, MALTE\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:9000/beer/2",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"beer",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patch/{id}",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"CERVEJA 2 PATCH\",\r\n    \"alcoholContent\": \"5%\",\r\n    \"price\": 25,\r\n    \"categoryName\": \"AMERICAN LAGER\",\r\n    \"ingredients\": \"LÚPULO, MALTE\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:9000/beer/3",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"beer",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete/{id}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,199 @@
+openapi: 3.0.1
+info:
+  title: BeerCraft
+  description: Feito por Matheus Dutra Fonseca
+  termsOfService: urn:tos
+  contact: {}
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0
+  version: "1.0"
+servers:
+- url: //localhost:9000/
+tags:
+- name: beer-controller
+  description: Beer Controller
+paths:
+  /beer:
+    get:
+      tags:
+      - beer-controller
+      summary: get
+      operationId: getUsingGET
+      responses:
+        200:
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BeerDto'
+        404:
+          description: Not Found
+          content: {}
+      deprecated: false
+    post:
+      tags:
+      - beer-controller
+      summary: post
+      operationId: postUsingPOST
+      requestBody:
+        description: form
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BeerForm'
+        required: true
+      responses:
+        201:
+          description: Created
+          content: {}
+        404:
+          description: Not Found
+          content: {}
+      deprecated: false
+      x-codegen-request-body-name: form
+  /beer/{id}:
+    get:
+      tags:
+      - beer-controller
+      summary: getbyId
+      operationId: getbyIdUsingGET
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/BeerDto'
+        404:
+          description: Not Found
+          content: {}
+      deprecated: false
+    put:
+      tags:
+      - beer-controller
+      summary: put
+      operationId: putUsingPUT
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: form
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BeerForm'
+        required: true
+      responses:
+        200:
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/BeerDto'
+        404:
+          description: Not Found
+          content: {}
+      deprecated: false
+      x-codegen-request-body-name: form
+    delete:
+      tags:
+      - beer-controller
+      summary: delete
+      operationId: deleteUsingDELETE
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        204:
+          description: No Content
+          content: {}
+        404:
+          description: not Found
+          content: {}
+      deprecated: false
+    patch:
+      tags:
+      - beer-controller
+      summary: patch
+      operationId: patchUsingPATCH
+      parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        description: form
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BeerForm'
+        required: true
+      responses:
+        200:
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/BeerDto'
+        404:
+          description: not Found
+          content: {}
+      deprecated: false
+      x-codegen-request-body-name: form
+components:
+  schemas:
+    BeerDto:
+      title: BeerDto
+      type: object
+      properties:
+        alcoholContent:
+          type: string
+        categoryName:
+          type: string
+        id:
+          type: integer
+          format: int64
+        ingredientName:
+          type: string
+        name:
+          type: string
+        price:
+          type: number
+    BeerForm:
+      title: BeerForm
+      type: object
+      properties:
+        alcoholContent:
+          type: string
+        categoryName:
+          type: string
+        ingredients:
+          type: string
+        name:
+          type: string
+        price:
+          type: number
